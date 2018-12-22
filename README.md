@@ -24,5 +24,13 @@ As we can see - women were 3/4 times more likely to survive the disaster than me
 Naturally we would think, that the class of travel would have an impact on the survivability chance (at least back then). This figure shows us the percentage of survival by `Pclass`.
 
 ![alt text](https://i.imgur.com/GdKJ2xt.png "")
+
+That definitely shows us that `Pclass` feature is worth taking into consideration.
+
+Interesting thing happens when we cross-compare those results with `Sex` feature:
+
+![alt text](https://i.imgur.com/c4XwF42.png "")
+
+As we can see - the sex of the passengers matters, but its effect on survival chance varies between different `Pclasses`. That's another argument to include `Pclass` feature in our further computation.
 ## 4. Fare
 ## 5. Embarked

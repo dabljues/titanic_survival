@@ -41,3 +41,4 @@ class DataAnalyzer:
         self._facet_grid(sns.barplot, col='Sex', x=['Survived'])
         # Check if the survival rate is connected with PClass
         self._facet_grid(sns.barplot, col='Pclass', x=['Survived'])
+        self._facet_grid(sns.barplot, col='Pclass', row='Sex', x=['Survived'])
