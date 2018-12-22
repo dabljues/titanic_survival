@@ -25,10 +25,10 @@ class DataAnalyzer:
         return ClassificationData(self.train_data.drop(features, axis=1), self.train_data[features],
                                   self.test_data.drop('PassengerId', axis=1).copy())
 
-    def _facet_grid(self, func, x: List[str], col: str = None, row: str = None) -> None:
+    def _facet_grid(self, func, x: List[str], col: str = None, row: str = None, orient: str = 'v') -> None:
         g = sns.FacetGrid(self.train_data, col=col, row=row)
         if func == sns.barplot:
-            g.map(func, *x, ci=None)
+            g.map(func, *x, orient=orient, ci=None)
         else:
             g.map(func, *x)
         g.add_legend()
@@ -38,5 +38,6 @@ class DataAnalyzer:
         # Check if survival rate is connected with Age
         self._facet_grid(plt.hist, col='Survived', x=['Age'])
         # Check if survival rate is connected with Sex
-        self._facet_grid(sns.barplot, col='Sex', row='Pclass', x=['Survived'])
-        self._stacked_bar(x=['Age'])
+        self._facet_grid(sns.barplot, col='Sex', x=['Survived'])
+        # Check if the survival rate is connected with PClass
+        self._facet_grid(sns.barplot, col='Pclass', x=['Survived'])
