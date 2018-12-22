@@ -1,1 +1,1 @@
-# jsos_gpa_calculator
+# titanic_survival
