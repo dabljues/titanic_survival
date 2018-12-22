@@ -1,18 +1,10 @@
 import os
-from dataclasses import dataclass
-from typing import List
 
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
 
+from data.data_analyzer import ClassificationData
 from data.data_reader import DataReader
-
-
-@dataclass
-class ClassificationData:
-    X_train: pd.DataFrame
-    Y_train: pd.DataFrame
-    X_test: pd.DataFrame
 
 
 class TitanicTrain:
@@ -35,10 +27,6 @@ class TitanicTrain:
             print(f'Test file doesn\'t exist!')
             return False
         return True
-
-    def model_data(self, features: List[str]) -> ClassificationData:
-        return ClassificationData(self.train_data.drop(features, axis=1), self.train_data[features],
-                                  self.test_data.drop('PassengerId', axis=1).copy())
 
     @staticmethod
     def train_knn(data: ClassificationData, n_neighbors: int = 1) -> float:
